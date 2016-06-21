@@ -4,7 +4,7 @@ myApp.controller('MyController', ['$scope', '$http', '$cookieStore', function ($
 
     $scope.clearJsonObj = function () {
         var data = JSON.stringify("");
-        $http.post('/Widgets/SaveLayout', JSON.stringify({ jsonObj: data }));
+        $http.post('/Widgets/SaveLayouts', JSON.stringify({ jsonObj: data }));
     }
 
     $scope.WidgetSelected = function (url, obj) {
