@@ -1,0 +1,169 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">x</span>
+            <h2>Select Layout</h2>
+        </div>
+        <div class="modal-body">
+            <table>
+                <tr>
+                    <td style="padding:22px">
+                        <table id="layoutA" style="border: groove; width: 125px; height: 100px; padding:5px" ng-click="LayoutSelected('Layout1',this)">
+                            <tr>
+                                <td style="border:ridge ; width: 40px;"></td>
+                                <td style="border: ridge; width: 40px;"></td>
+                                <td style="border: ridge; width: 40px;"></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="padding:22px">
+                        <table id="layoutAA" style="border: groove; width: 125px; height: 100px; padding: 5px" ng-click="LayoutSelected('Layout2',this)">
+                            <tr>
+                                <td style="border: ridge; width: 60px;"></td>
+                                <td style="border: ridge; width: 60px;"></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="padding:22px">
+                        <table id="layoutAAA" style="border: groove; width: 125px; height: 100px; padding: 5px; " ng-click="LayoutSelected('Layout3',this)">
+                            <tr>
+
+                                <td style="border: ridge; width: 120px;"></td>
+
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="myModalWidget" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">x</span>
+            <h2>Add Widget</h2>
+        </div>
+        <div class="modal-body" style="align-content:center">
+            <ul>
+                <li style=" padding: 20px; border: groove;" id="widgetUL1" ng-click="WidgetSelected('Widget1',this)">
+                    <h3>Widget #1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam magna sem.</p>
+                </li>
+                <li style="padding: 20px; border: groove;" id="widgetUL2" ng-click="WidgetSelected('Widget2',this)">
+                    <h3>Widget #2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam magna sem.</p>
+                </li>
+                <li style="padding: 20px; border: groove;" id="widgetUL3" ng-click="WidgetSelected('Widget3',this)">
+                    <h3>Widget #3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam magna sem.</p>
+                </li>
+                <li style="padding: 20px; border: groove;" id="widgetUL4" ng-click="WidgetSelected('Widget4',this)">
+                    <h3>Widget #4</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam magna sem.</p>
+                </li>
+                <li style="padding: 20px; border: groove;" id="widgetUL5" ng-click="WidgetSelected('Widget5',this)">
+                    <h3>Widget #5</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam magna sem.</p>
+                </li>
+                <li style="padding: 20px; border: groove;" id="widgetUL6" ng-click="WidgetSelected('Widget6',this)">
+                    <h3>Widget #6</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam magna sem.</p>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<table style="width:100%">
+    <tr>
+        <td>
+            <div style="padding-left:30px">
+                <h2>Welcome!</h2>
+            </div>
+            <div id="selectLayout" style="margin-left:65%">
+
+
+                <a id="myBtnWidget" class="button" href="#">Add Widget</a>
+                <a id="myBtn" class="button" href="#">Edit Layout</a>
+                <a class="button" ng-click="clearJsonObj()" href="#">Default</a>
+                <a class="button" href="@Url.Action("Login", "Home")">LogOff</a>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="layoutDiv">
+    @Html.Partial("~/Views/Home/Layout.cshtml")
+</div>
+
+@Html.Hidden("Widget11", Url.Action("Widget1", "Widgets"))
+@Html.Hidden("Widget21", Url.Action("Widget2", "Widgets"))
+@Html.Hidden("Widget31", Url.Action("Widget3", "Widgets"))
+@Html.Hidden("Widget41", Url.Action("Widget4", "Widgets"))
+@Html.Hidden("Widget51", Url.Action("Widget5", "Widgets"))
+@Html.Hidden("Widget61", Url.Action("Widget6", "Widgets"))
+@Html.Hidden("Layout11", Url.Action("Layout1", "Layouts"))
+@Html.Hidden("Layout21", Url.Action("Layout2", "Layouts"))
+@Html.Hidden("Layout31", Url.Action("Layout3", "Layouts"))
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    var modalWidget = document.getElementById('myModalWidget');
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    var btnWidget = document.getElementById("myBtnWidget");
+
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    var span2 = document.getElementsByClassName("close")[1];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+
+    }
+
+    btnWidget.onclick = function () {
+        debugger;
+        modalWidget.style.display = "block";
+
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+
+        modal.style.display = "none";
+    }
+
+    span2.onclick = function () {
+        modalWidget.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        else if (event.target == modalWidget) {
+            modalWidget.style.display = "none";
+        }
+    }
+</script>
