@@ -11,6 +11,7 @@ namespace ConsoleApplicationGitTest
         static void Main(string[] args)
         {
             Console.WriteLine("Test Github");
+            Console.WriteLine("Test Github 2");
         }
     }
 }
