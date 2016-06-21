@@ -12,6 +12,8 @@ namespace ConsoleApplicationGitTest
         {
             Console.WriteLine("Test Github");
             Console.WriteLine("Test Github 2");
+            Console.WriteLine("Test Github 3");
+            Console.WriteLine("Test Github 4");
         }
     }
 }
